@@ -1,38 +1,189 @@
-.App {
-  text-align: center;
-}
+/*------------------------------------------------------------------ 
+[Table of contents] 
+1. VARIABLES 
+2. GLOBAL STYLES 
+3. APP STYLES 
+4. HEADER 
+5. TEXT PANELS 
+6. FOOTER 
+-------------------------------------------------------------------*/
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* ------------------------- 1. VARIABLES ------------------------- 
+1.1 Color variables
+1.2 Font variables
+1.3 Visuals variables
+1.4 Responsive variables */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ------------------------- 2. GLOBAL STYLES ------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Space Mono", monospace;
+  color: #4a4a4a;
+  background-color: #ffcd38;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ------------------------- 3. APP STYLES ------------------------- */
+.main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  height: 100vh;
 }
-
-.App-link {
-  color: #61dafb;
+/* ------------------------- 4. HEADER ------------------------- */
+header {
+  display: flex;
+  flex-direction: column;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+}
+.app-title {
+  order: 2;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .app-title {
+    order: 0;
+    padding-left: 10px;
+    margin-top: 0;
+    font-size: 1.2em;
+    text-align: left;
   }
+}
+.help-button {
+  align-self: flex-end;
+  width: 40px;
+  height: 40px;
+  margin: 20px;
+  text-align: center;
+  box-shadow: 10px 10px #646464;
+  background-color: #ffeeb4;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-out;
+}
+.help-button i {
+  font-size: 2.5em;
+}
+.help-button:hover {
+  box-shadow: 7px 7px #646464;
+}
+.help-button.active {
+  box-shadow: none;
+}
+@media (max-width: 768px) {
+  .help-button {
+    align-self: center;
+    margin: 0;
+    height: inherit;
+    box-shadow: none;
+    transition: background-color 0.2s ease-out;
+  }
+  .help-button i {
+    font-size: 2.5em;
+  }
+  .help-button:hover {
+    background-color: #e7b300;
+  }
+  .help-button.active {
+    background-color: #fff;
+  }
+}
+/* ------------------------- 6. TEXT PANELS ------------------------- */
+.text-panels {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 10%;
+  height: 600px;
+}
+@media (max-width: 1024px) {
+  .text-panels {
+    width: 90%;
+    margin: 0 5%;
+  }
+}
+@media (max-width: 768px) {
+  .text-panels {
+    flex-grow: 2;
+    width: 100%;
+    margin: 0;
+  }
+}
+.text-panel-left,
+.text-panel-right {
+  width: 45%;
+  height: 100%;
+  padding: 10px;
+  box-shadow: 10px 10px #646464;
+  background-color: #ffdd67;
+}
+.text-panel-left {
+  resize: none;
+  outline: none;
+  overflow-x: hidden;
+  font-family: "Space Mono", monospace;
+  font-size: 0.95em;
+  color: #4a4a4a;
+  border: 0;
+}
+.text-panel-left .non-editable {
+  pointer-events: none;
+}
+.text-panel-right {
+  font-size: 0.95em;
+  overflow: auto;
+}
+@media (max-width: 1024px) {
+  .text-panel-left,
+  .text-panel-right {
+    font-size: 0.8em;
+  }
+}
+@media (max-width: 768px) {
+  .text-panel-left,
+  .text-panel-right {
+    font-size: 0.65em;
+  }
+}
+.text-panel-left::-webkit-scrollbar,
+.text-panel-right::-webkit-scrollbar {
+  width: 10px;
+}
+.text-panel-left::-webkit-scrollbar-track,
+.text-panel-right::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.text-panel-left::-webkit-scrollbar-thumb,
+.text-panel-right::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px) {
+  .text-panel-left,
+  .text-panel-right {
+    width: 50%;
+    box-shadow: none;
+  }
+  .text-panel-left {
+    border-right: 3px solid #ffcd38;
+  }
+}
+/* ------------------------- 5. FOOTER ------------------------- */
+footer {
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 30px;
+  margin-top: 20px;
+}
+footer a {
+  text-decoration: none;
+  color: #4a4a4a;
 }
